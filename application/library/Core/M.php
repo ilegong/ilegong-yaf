@@ -19,7 +19,7 @@ class M
     protected $_cacheConn = null;
     protected $_cacheExitType = '';
     protected $_cache = false;
-    protected $_prefix = "cc_";
+    protected $_prefix = "cake_";
     protected $_life_time = -1;
 
     protected $_rules = [

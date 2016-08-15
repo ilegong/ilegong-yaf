@@ -85,10 +85,17 @@ class DemoController extends Yaf\Controller_Abstract
         var_dump($res);
     }
 
-    public function tmpAction()
+    public function templateMsgAction()
     {
         $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage([],$this->_tousername,'AmO0edPBLHvgt0AlEOQjD9gHfY85KMIRW8dLvqZmFQY',"");
         var_dump($res);
     }
 
+    public function dbAction()
+    {
+        \Help\Loader::model('Weixin','Weshare');
+        $weshareModel = new WeshareModel();
+        $res = $weshareModel->getById(15);
+        var_export($res);
+    }
 }
