@@ -98,4 +98,13 @@ class DemoController extends Yaf\Controller_Abstract
         $res = $weshareModel->getById(15);
         var_export($res);
     }
+
+    public function hashAction()
+    {
+        $hashids = new Hashids\Hashids("this is my salt",28);
+        $str = $hashids->encode([123456789,9876543210]);
+        var_export($str);
+        echo "\r\n";
+        var_export($hashids->decode($str));
+    }
 }

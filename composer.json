@@ -1,6 +1,7 @@
 {
     "require": {
         "qiniu/php-sdk": "^7.0",
-        "vlucas/valitron": "^1.2"
+        "vlucas/valitron": "^1.2",
+        "hashids/hashids": "^1.0"
     }
 }

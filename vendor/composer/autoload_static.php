@@ -15,12 +15,20 @@ class ComposerStaticInit5c047070a703ab599dcf6f3658092d22
         array (
             'Qiniu\\' => 6,
         ),
+        'H' => 
+        array (
+            'Hashids\\' => 8,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Qiniu\\' => 
         array (
             0 => __DIR__ . '/..' . '/qiniu/php-sdk/src/Qiniu',
+        ),
+        'Hashids\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/hashids/hashids/lib/Hashids',
         ),
     );
 
