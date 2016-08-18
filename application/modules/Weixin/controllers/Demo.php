@@ -16,10 +16,11 @@ class DemoController extends Yaf\Controller_Abstract
         Yaf\Dispatcher::getInstance()->disableView();
     }
 
-    public function testAction()
+    public function testAction($id)
     {
-        echo WECHAT_APPID;
-        die;
+        sleep(5);
+        error_log($id.PHP_EOL, 3 ,'/tmp/log.log');
+        exit();
     }
 
     public function setAction()
