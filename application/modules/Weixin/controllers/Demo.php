@@ -9,7 +9,7 @@
 class DemoController extends Yaf\Controller_Abstract
 {
 
-    private $_tousername = "oY-rFuCeF-EwMGO27Peno_84nn3A";
+    private $_tousername = "orKydjpLB3ORedyURVnh8NOP52b0";
 
     public function init()
     {
@@ -25,7 +25,7 @@ class DemoController extends Yaf\Controller_Abstract
 
     public function setAction()
     {
-        Db\Redis\Redis::getInstance()->set('wx_access_token',"y8I8WUnIiChjQpy-J-B7hY7aKnI7fqBU8yKBoEUVMQtdEydb3g7daCAmhr-zuEMRKniJJvrYrgIJQ-c81hQt7wAzuDJaLmGNos-TiACN5dArdLWYX3rZR4TNa7KUUv7gKYIhAAAOCM");
+        Db\Redis\Redis::getInstance()->set('wx_access_token',"DKpoo2L9q5bMlO8pxVTg6J4CEhu88BOMIRJ3F_ahMQ5D3jQnbCDEGRW8dyx8OZLDtUqltqBC9dspp4zjEx__t3ZaiX5ArRk5YCi0gcjZlIMGXYgAJANEF");
     }
 
     public function getAction()
