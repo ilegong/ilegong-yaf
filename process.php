@@ -12,7 +12,6 @@ $worker_num = 5;
 swoole_timer_tick(1000,'onTime');
 
 function onTime($time_id){
-    //取数据
     global $worker_num,$workers;
 
     for ($i = 0; $i < $worker_num;$i++)
