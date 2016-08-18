@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Valitron' => array($vendorDir . '/vlucas/valitron/src'),
+    'OAuth2' => array($vendorDir . '/bshaffer/oauth2-server-php/src'),
 );

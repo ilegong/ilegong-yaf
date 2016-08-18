@@ -40,6 +40,13 @@ class ComposerStaticInit5c047070a703ab599dcf6f3658092d22
                 0 => __DIR__ . '/..' . '/vlucas/valitron/src',
             ),
         ),
+        'O' => 
+        array (
+            'OAuth2' => 
+            array (
+                0 => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src',
+            ),
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
