@@ -53,7 +53,7 @@ class AccessToken
 
         $accessToken = $accessToken['access_token'];
 
-        Redis::getInstance()->setex('wx_access_token', 7100, $accessToken);
+        Redis::getInstance()->setex('pys_app_miaocms_wx_base_access_token', 7100, $accessToken);
 
         return $accessToken;
     }
@@ -69,7 +69,7 @@ class AccessToken
         //$accessToken = YourDatabase::get('access_token');
         //$data = file_get_contents('/virtualhost/vmV6WGCi/public/access_token');
         //$accessToken['value'] = $data;
-        return Redis::getInstance()->get("wx_access_token");
+        return Redis::getInstance()->get("pys_app_miaocms_wx_base_access_token");
     }
 
 }

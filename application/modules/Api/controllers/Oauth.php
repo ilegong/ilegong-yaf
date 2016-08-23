@@ -52,16 +52,19 @@ class OauthController extends \Core\Api\MyCon
         $response = new OAuth2\Response();
         $this->_oauthServer->handleAuthorizeRequest($request, $response, true ,$userid);
 
-        $code = substr($response->getHttpHeader('Location'), strpos($response->getHttpHeader('Location'), 'code=') + 5, 40);
+        //$code = substr($response->getHttpHeader('Location'), strpos($response->getHttpHeader('Location'), 'code=') + 5, 40);
+        //var_dump($response->getHttpHeader('Location'));
 
-        \Help\Out::ajaxReturn(['code' => $code]);
+        $this->redirect($response->getHttpHeader('Location'));
+
+        //\Help\Out::ajaxReturn(['code' => $code]);
     }
 
     /**
      * code换取用户access_token,refresh_token
      * @param  grant_type=authorization_code
      * @param  code
-     * curl -u testclient:testpass http://dev.tsjyaf.com/api/oauth/token -d 'grant_type=authorization_code&code=e43c71a15d93760357de09f11b288e361ea9df86'
+     * curl -u testclient:testpass http://dev.tsjyaf.com/api/oauth/accesstoken -d 'grant_type=authorization_code&code=e43c71a15d93760357de09f11b288e361ea9df86'
      * @return {"access_token":"90ffa624c6dadabfdd161998fb1c9d5ba258d60c","expires_in":3600,"token_type":"Bearer","scope":null,"refresh_token":"e5f1a7b0c7f6c841b3a71229eaf3efc9da3c291c"}
      */
     public function accessTokenAction()
