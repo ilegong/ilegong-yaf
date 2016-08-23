@@ -34,6 +34,11 @@ class Redis
         return self::$conn;
     }
 
+    public function getHandle()
+    {
+        return $this->_handle;
+    }
+
     public function set($key, $value)
     {
         return $this->_handle->set($key, $value);
