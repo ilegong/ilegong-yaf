@@ -31,52 +31,7 @@ class Redis
             $config = \Yaf\Application::app()->getConfig()->redis->toArray();
             self::$conn = new self($config);
         }
-        return self::$conn;
-    }
-
-    public function getHandle()
-    {
-        return $this->_handle;
-    }
-
-    public function set($key, $value)
-    {
-        return $this->_handle->set($key, $value);
-    }
-
-    public function get($key)
-    {
-        return $this->_handle->get($key);
-    }
-
-    public function del($key)
-    {
-        return $this->_handle->delete($key);
-    }
-
-    public function setex($key, $time, $value)
-    {
-        return $this->_handle->setex($key, $time, $value);
-    }
-
-    public function hset($name , $key , $value)
-    {
-        return $this->_handle->hset($name , $key , $value);
-    }
-
-    public function hget($name , $key)
-    {
-        return $this->_handle->hget($name , $key);
-    }
-
-    public function hdel($name , $key)
-    {
-        return $this->_handle->hdel($name , $key);
-    }
-
-    public function hclear($name)
-    {
-        return $this->_handle->del($name);
+        return self::$conn->_handle;
     }
 
 }

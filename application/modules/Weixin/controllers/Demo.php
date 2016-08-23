@@ -16,21 +16,19 @@ class DemoController extends Yaf\Controller_Abstract
         Yaf\Dispatcher::getInstance()->disableView();
     }
 
-    public function testAction($id)
+    public function testAction()
     {
-        sleep(5);
-        error_log($id.PHP_EOL, 3 ,'/tmp/log.log');
-        exit();
+        Db\Redis\Redis::getInstance()->set('k1','v1');
     }
 
     public function setAction()
     {
-        Db\Redis\Redis::getInstance()->set('wx_access_token',"DKpoo2L9q5bMlO8pxVTg6J4CEhu88BOMIRJ3F_ahMQ5D3jQnbCDEGRW8dyx8OZLDtUqltqBC9dspp4zjEx__t3ZaiX5ArRk5YCi0gcjZlIMGXYgAJANEF");
+        Db\Redis\Redis::getInstance()->lPush('a1','a4v');
     }
 
     public function getAction()
     {
-        var_dump(\Db\Redis\Redis::getInstance()->get("wx_access_token"));
+        var_dump(\Db\Redis\Redis::getInstance()->rPop("a1"));
     }
 
     public function delAction()
