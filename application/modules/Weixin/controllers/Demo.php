@@ -34,7 +34,7 @@ class DemoController extends Yaf\Controller_Abstract
 
     public function getAction()
     {
-        var_dump(\Db\Redis\Redis::getInstance()->rPop("a1"));
+        var_dump(unserialize(\Db\Redis\Redis::getInstance()->get("pys_app_miaocms_wx_base_access_token")));
     }
 
     public function delAction()

@@ -51,9 +51,12 @@ class AccessToken
         //fwrite($f, $accessTokenJson);
         //fclose($f);
 
-        $accessToken = $accessToken['access_token'];
+        $accessToken = [
+            'token' => $accessToken['access_token'],
+            'expire' => time() + 7100
+        ];
 
-        Redis::getInstance()->setex('pys_app_miaocms_wx_base_access_token', 7100, $accessToken);
+        Redis::getInstance()->setex('pys_app_miaocms_wx_base_access_token', 7100, serialize($accessToken));
 
         return $accessToken;
     }
@@ -69,7 +72,12 @@ class AccessToken
         //$accessToken = YourDatabase::get('access_token');
         //$data = file_get_contents('/virtualhost/vmV6WGCi/public/access_token');
         //$accessToken['value'] = $data;
-        return Redis::getInstance()->get("pys_app_miaocms_wx_base_access_token");
+        $accessToken = unserialize(Redis::getInstance()->get("pys_app_miaocms_wx_base_access_token"));
+        if($accessToken['expire'] > time())
+        {
+            return $accessToken['token'];
+        }
+        return null;
     }
 
 }
