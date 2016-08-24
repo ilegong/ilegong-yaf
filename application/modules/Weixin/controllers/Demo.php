@@ -26,6 +26,12 @@ class DemoController extends Yaf\Controller_Abstract
         Db\Redis\Redis::getInstance()->lPush('a1','a4v');
     }
 
+    public function logAction()
+    {
+        SeasLog::info("test",[],"haha");
+        SeasLog::alert("alert",[],"heihei");
+    }
+
     public function getAction()
     {
         var_dump(\Db\Redis\Redis::getInstance()->rPop("a1"));
