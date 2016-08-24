@@ -19,7 +19,7 @@ function onFirst(){
                 __DIR__."/public/cli.php",
                 "request_uri=/weixin/msg/templatefirst"
             ];
-            $worker->exec("php",$params);
+            $worker->exec("/usr/bin/php",$params);
         },false,false);
         $process->start();
         $process->wait(false);
@@ -34,7 +34,7 @@ function onSecond(){
                 __DIR__."/public/cli.php",
                 "request_uri=/weixin/msg/templatesecond"
             ];
-            $worker->exec("php",$params);
+            $worker->exec("/usr/bin/php",$params);
         },false,false);
         $process->start();
         $process->wait(false);
@@ -49,7 +49,7 @@ function onThird(){
                 __DIR__."/public/cli.php",
                 "request_uri=/weixin/msg/templatethird"
             ];
-            $worker->exec("php",$params);
+            $worker->exec("/usr/bin/php",$params);
         },false,false);
         $process->start();
         $process->wait(false);
