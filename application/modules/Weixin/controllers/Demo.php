@@ -34,7 +34,7 @@ class DemoController extends Yaf\Controller_Abstract
 
     public function getAction()
     {
-        var_dump(unserialize(\Db\Redis\Redis::getInstance()->get("pys_app_miaocms_wx_base_access_token")));
+        var_export(LaneWeChat\Core\AccessToken::getAccessToken());
     }
 
     public function delAction()
