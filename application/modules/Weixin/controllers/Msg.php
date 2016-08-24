@@ -18,10 +18,10 @@ class MsgController extends Yaf\Controller_Abstract
         $msg = json_decode(Db\Redis\Redis::getInstance()->rPop($key),true);
         if ($msg) {
             SeasLog::info(json_encode($msg),[],"wx_template_first_msg");
-            $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'],$msg['touser'],$msg['template_id'],$msg['url']);
+            $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'],$msg['touser'],$msg['template_id'],$msg['url'],$msg['topcolor']);
             if($res['errcode'] != 0) {
                 Db\Redis\Redis::getInstance()->lPush($key,json_encode($msg));
-                SeasLog::info(json_encode($msg),[],"wx_template_msg_error");
+                SeasLog::info(json_encode($msg)."|".json_encode($res),[],"wx_template_msg_error");
             }
         }
     }
@@ -32,10 +32,10 @@ class MsgController extends Yaf\Controller_Abstract
         $msg = json_decode(Db\Redis\Redis::getInstance()->rPop($key),true);
         if ($msg) {
             SeasLog::info(json_encode($msg),[],"wx_template_second_msg");
-            $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'], $msg['touser'], $msg['template_id'], $msg['url']);
+            $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'], $msg['touser'], $msg['template_id'], $msg['url'],$msg['topcolor']);
             if ($res['errcode'] != 0) {
                 Db\Redis\Redis::getInstance()->lPush($key, json_encode($msg));
-                SeasLog::info(json_encode($msg),[],"wx_template_msg_error");
+                SeasLog::info(json_encode($msg)."|".json_encode($res),[],"wx_template_msg_error");
             }
         }
     }
@@ -46,9 +46,9 @@ class MsgController extends Yaf\Controller_Abstract
         $msg = json_decode(Db\Redis\Redis::getInstance()->rPop($key),true);
         if($msg) {
             SeasLog::info(json_encode($msg),[],"wx_template_third_msg");
-            $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'],$msg['touser'],$msg['template_id'],$msg['url']);
+            $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'],$msg['touser'],$msg['template_id'],$msg['url'],$msg['topcolor']);
             if ($res['errcode'] != 0) {
-                SeasLog::info(json_encode($msg),[],"wx_template_msg_error");
+                SeasLog::info(json_encode($msg)."|".json_encode($res),[],"wx_template_msg_error");
             }
         }
     }
