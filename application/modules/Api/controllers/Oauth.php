@@ -46,7 +46,7 @@ class OauthController extends \Core\Api\MyCon
         }
 
         //登陆后获取用户id
-        $userid = 1234;
+        $userid = $_REQUEST['uid'];
 
         $request = OAuth2\Request::createFromGlobals();
         $response = new OAuth2\Response();
