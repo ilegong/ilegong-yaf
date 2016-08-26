@@ -33,7 +33,10 @@ class MsgController extends Yaf\Controller_Abstract
         if ($msg) {
             SeasLog::info(json_encode($msg),[],$key);
             $res = LaneWeChat\Core\TemplateMessage::sendTemplateMessage($msg['data'], $msg['touser'], $msg['template_id'], $msg['url'],$msg['topcolor']);
-            if ($res['errcode'] != 0) {
+            if($res['errcode'] == 43004)
+            {
+                SeasLog::info($msg['touser'],[],"wx_unsubscribe");
+            } elseif ($res['errcode'] != 0) {
                 if(in_array($step,["first","second"]))
                 {
                     $key = $step == "first" ? "second" : "third";
