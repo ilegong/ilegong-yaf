@@ -198,4 +198,14 @@ class M
         return $this->_db->insertSql($sql);
     }
 
+    public function getDb()
+    {
+        return $this->_db;
+    }
+
+    public function action($actions)
+    {
+        return $this->_db->action($actions);
+    }
+
 }

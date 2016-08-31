@@ -77,7 +77,6 @@ class CouponController extends \Core\Api\MyCon
             $res = ['ok' => 0,'msg'=>'success'];
         }
         \Help\Out::ajaxReturn($res);
-
     }
 
     /**
