@@ -16,11 +16,6 @@ class CouponItemController extends \Core\Api\MyCon
      */
     public function addAction()
     {
-        $a = 1;
-        function()use($a){
-            $a = 2;
-        }
-        echo $a;die;
         \Help\Loader::model('Api','CouponItem');
         $couponItemModel = new CouponItemModel();
         //是否领过红包
