@@ -39,7 +39,7 @@ class MsgController extends Yaf\Controller_Abstract
             } elseif ($res['errcode'] != 0) {
                 if(in_array($step,["first","second"]))
                 {
-                    $key = $step == "first" ? "second" : "third";
+                    $key = $step == "first" ? "wx_template_second_msg" : "wx_template_third_msg";
                     Db\Redis\Redis::getInstance()->lPush($key, json_encode($msg));
                 }
                 SeasLog::info(json_encode($msg)."|".json_encode($res),[],"wx_template_msg_error");
