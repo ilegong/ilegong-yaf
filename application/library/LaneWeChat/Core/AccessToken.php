@@ -73,11 +73,7 @@ class AccessToken
         //$data = file_get_contents('/virtualhost/vmV6WGCi/public/access_token');
         //$accessToken['value'] = $data;
         $accessToken = unserialize(Redis::getInstance()->get("pys_app_miaocms_wx_base_access_token"));
-        if($accessToken['expire'] > time())
-        {
-            return $accessToken['token'];
-        }
-        return null;
+        return $accessToken['token'];
     }
 
 }
