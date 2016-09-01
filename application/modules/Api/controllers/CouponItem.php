@@ -16,6 +16,9 @@ class CouponItemController extends \Core\Api\MyCon
      */
     public function addAction()
     {
+        if(!($_REQUEST['coupon_id'] AND $_REQUEST['source'])){
+            \Help\Out::ajaxReturn(['ok'=>1,'msg'=>'参数错误']);
+        }
         \Help\Loader::model('Api','CouponItem');
         $couponItemModel = new CouponItemModel();
         //是否领过红包
@@ -42,6 +45,10 @@ class CouponItemController extends \Core\Api\MyCon
         ];
         $coupon = $couponModel->gets($where);
         $coupon = $coupon[0];
+        if(!$coupon){
+            \Help\Out::ajaxReturn(['ok' => 1, 'msg'=>'红包不存在']);
+        }
+
         if($coupon['num'] == 0)//红包已发完
         {
             \Help\Out::ajaxReturn(['ok' => 1, 'msg'=>'红包已经发完']);
