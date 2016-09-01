@@ -10,6 +10,7 @@
 //ini_set('display_errors', 'on');
 
 date_default_timezone_set('Asia/Shanghai');
+error_reporting(E_ERROR|E_WARNING|E_PARSE);
 
 define("APP_PATH", realpath(dirname(__FILE__) . '/../'));
 define("APPLICATION_PATH", APP_PATH);
